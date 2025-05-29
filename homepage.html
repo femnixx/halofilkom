@@ -1,40 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Centered Schedule</title>
 </head>
-<body class="bg-[url('assets/background-homepage.png')] bg-cover">
-    <div class="flex flex-col items-center">
-        <div class="flex items-center justify-between p-4 mt-20 w-full max-w-xl">
-            <img src="assets/filkom-logo.png" alt="logo" class=" w-[140px] h-[40px]"> 
-            
-            <div class="profile flex items-center">
-                <p class="text-white font-bold text-lg mr-3">HI, JOHN DOE!</p> 
-                <img src="assets/profile.png" alt="profile picture" class="h-[64px] w-[64px]">
+<body class="bg-[url('assets/background-homepage.png')] bg-cover min-h-screen">
+  <div class="flex flex-col items-center">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between p-4 mt-20 w-full max-w-xl">
+      <img src="assets/filkom-logo.png" alt="logo" class="w-[140px] h-[40px]" />
+      <div class="profile flex items-center">
+        <p class="text-white font-bold text-lg mr-3">HI, JOHN DOE!</p>
+        <img src="assets/profile.png" alt="profile picture" class="h-[64px] w-[64px]" />
+      </div>
+    </div>
+
+    <!-- Schedule and Button container wrapper -->   
+     <div class="w-[394px] flex flex-col  content-center">
+        <div class="bg-gradient-to-br from-[rgba(169,169,169,0.65)] to-[rgba(255,253,253,0.55)] 
+            h-[40px] rounded-t-[16px] text-[13px] text-white font-semibold 
+            flex justify-between items-center px-5">
+          <p>SENIN</p>
+          <p>SELASA</p>
+          <p>RABU</p>
+          <p>KAMIS</p>
+          <p>JUMAT</p>
+        </div>
+        <div class="h-[300px] bg-[linear-gradient(to_right,_rgba(255,255,255,1),_rgba(255,255,255,0.9))] rounded-b-[16px] shadow-2xl opacity-[95%]"></div>
+
+        <div class="flex justify-center w-full mt-4">
+          <div class="w-[360px] h-[126px] bg-white opacity-[80%] flex rounded-[16px]">
+            <div class="flex items-center justify-between px-5 w-[360px]">
+              <!-- Kartu Hasil Studi container -->
+               <div class="flex items-center justify-center flex-col">
+                 <div class="bg-[#EB5C12] w-[65px] h-[65px] rounded-full shadow-xl
+              flex items-center justify-center">
+                <img src="assets/khs-pic.png" alt="kartu hasil studi">
+              </div>
+              <div class="text-[#EB5C12] flex flex-col items-center mt-2 font-bold text-[11px]">
+                <p>KARTU HASIL</p>
+              <p>STUDI</p>
+              </div>
+               </div>
+            <!-- Kartu Rencana Studi container -->
+              <div class="flex items-center justify-center flex-col">
+                 <div class="bg-[#EB5C12] w-[65px] h-[65px] rounded-full shadow-xl
+              flex items-center justify-center">
+                <img src="assets/krs-pic.png" alt="kartu hasil studi">
+              </div>
+              <div class="text-[#EB5C12] flex flex-col items-center mt-2 font-bold text-[11px]">
+                <p>KARTU RENCANA</p>
+              <p>STUDI</p>
+              </div>
+               </div>
+            <!-- Kartu Rencana Studi container -->
+              <div class="flex items-center justify-center flex-col">
+                 <div class="bg-[#EB5C12] w-[65px] h-[65px] rounded-full shadow-xl
+              flex items-center justify-center">
+                <img src="assets/presensi-pic.png" alt="kartu hasil studi">
+              </div>
+              <div class="text-[#EB5C12] flex flex-col items-center mt-2 font-bold text-[11px]">
+                <p>PRESENSI</p>
+              <p>KELAS</p>
+              </div>
+               </div>
             </div>
+          </div>
         </div>
 
-        <div class="schedule flex flex-col items-center">
-            <!-- Day schedule glass effect -->
-             <div class="w-96 h-96 bg-white inset-shadow-xs/100 bg-opacity-30 backdrop-blur-md rounded-t-[16px] flex items-center justify-center text-white text-2xl font-bold w-[394px] h-[40px] justify-between text-[13px] p-5 font-semibold">
-                <p>SENIN</p>
-                <p>SELASA</p>
-                <p>RABU</p>
-                <p>KAMIS</p>
-                <p>JUMAT</p>
-             </div>
-             <!-- Schedule with actual schedule -->
-             <div class="bg-white bg-opacity-100 shadow-xl backdrop-blur-md  shadow-b-xl rounded-b-lg flex items-center justify-center text-white text-2xl font-bold w-[394px] h-[300px] justify-between text-[13px] p-5 font-semibold">
-                <!-- Schedule goes here -->
-             </div>
-
-             <div class="w-[360px] h-[126px] bg-white bg-opacity-100 backdrop-blur-md rounded-lg flex items-center justify-between mt-5">
-            </div>
-        </div> 
-
-    </div>
+        <!-- Pengunguman Kelas container-->
+        <div class="flex flex-col justify-items-center pl-4 mt-9 text-[#0074C9] font-bold text-[15px]">
+          <h1>PENGUNGUMAN KELAS</h1>
+        </div>
+      </div>
 </body>
 </html>
