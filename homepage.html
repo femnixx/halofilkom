@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Centered Schedule</title>
 </head>
-<body class="bg-[url('assets/background-homepage.png')] bg-cover min-h-screen">
+<body class="bg-[url('assets/background-homepage.png')] bg-cover min-h-screen overflow-auto ">
   <div class="flex flex-col items-center">
 
     <!-- Header -->
-    <div class="flex items-center justify-between p-4 mt-20 w-full max-w-xl">
+    <div class="flex items-center justify-between p-4 mt-10 w-full max-w-xl">
       <img src="assets/filkom-logo.png" alt="logo" class="w-[140px] h-[40px]" />
       <div class="profile flex items-center">
         <p class="text-white font-bold text-lg mr-3">HI, JOHN DOE!</p>
@@ -92,7 +92,8 @@
             <h1 class="ml-1 text-[#EB5C12] font-extrabold mb-1">></h1>
           </div>
           <!-- Pengunguman kelas block container -->
-          <div class="bg-white rounded-[20px] w-[346px] h-auto shadow-xl mt-1 p-3 pb-5">
+          <div class="bg-white rounded-[20px] w-[346px] max-h-[200px] shadow-xl 
+          mt-1 p-3 pb-5 overflow-y-auto" style="scrollbar-width: none; -ms-overflow-style: none;">
             <!--  Kartu pengunguman orange-->
             <div class="bg-[#EF7218] w-[319] h-auto flex flex-col rounded-[10px] text-white p-2 font-[12px] font-normal mb-5">
               <p class="text-white font-bold text-center mb-2">NAMA MATA KULIAH</p>
