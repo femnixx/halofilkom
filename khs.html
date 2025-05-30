@@ -21,7 +21,6 @@
           <!-- White box centered below banner -->
         <div class="w-full flex  justify-center mb-10 relative ">
           <!-- White box -->
-              
           <div class="w-[314px] h-[235px] shadow-xl bg-white rounded-[16px] -mt-10 flex flex-col">
               <div class="overflow-visible relative justify-center items-center flex">
                   <!-- profile -->
@@ -69,38 +68,68 @@
         </div>
       </div>
       <!-- Pilih semester dan jenis -->
-      <div class="flex justify-around w-full relative bg-[#EAEAEA]">
-        <!-- Pilih semester -->
-         <div class="flex flex-col items-center">
-            <p class="mb-3">Pilih semester</p>
-           <div class="dropdown dropdown-center">
-            <div tabindex="0" role="button" class="btn bg-transparent shadow-none">
-              <img src="assets/dropdown.png" alt="dropdown">
-            </div>
-            <ul tabindex="0" class="dropdown-content menu w-52 rounded-box mt-2 text-center shadow-md">
-            <li>Ganjil Semester 2024/2025</li>
-            <div class="divider divider-neutral before:h-[1px] after:h-[0.5px]"></div>
-            <li class="mt-1">Genap Semester 2024/2025</li>
-            </ul>
-            </div>
-         </div>
-
-          <!-- Jenis semester -->
-         <div class="flex flex-col items-center">
-            <p class="mb-3">Jenis semester</p>
-           <div class="dropdown dropdown-center">
-            <div tabindex="0" role="button" class="btn bg-transparent shadow-none">
-              <img src="assets/dropdown.png" alt="dropdown">
-            </div>
-            <ul tabindex="0" class="dropdown-content menu w-35 p-2 rounded-box mt-2 text-center shadow-md">
-            <li>Panjang</li>
-            <div class="divider divider-neutral before:h-[1px] after:h-[0.5px]"></div>
-            <li class="mt-1">Pendek</li>
-            </ul>
-            </div>
-         </div>
+<div class="flex justify-around w-full relative bg-[#EAEAEA]">
+  <!-- Pilih semester -->
+  <div class="flex flex-col items-center">
+    <p class="mb-3">Pilih semester</p>
+    <div class="dropdown dropdown-center">
+      <div tabindex="0" role="button" class="btn bg-transparent shadow-none flex flex-col">
+        <div class="">
+           <div id="selectedSemester" class="mt-1 text-black font-semibold text-[10px]"></div>
+          <img src="assets/dropdown.png" alt="dropdown">
+        </div>
       </div>
+      <ul tabindex="0" class="dropdown-content menu w-52 rounded-box mt-2 text-center shadow-md">
+        <li class="semester-option">Ganjil Semester 2024/2025</li>
+        <div class="divider divider-neutral before:h-[1px] after:h-[0.5px]"></div>
+        <li class="semester-option mt-1">Genap Semester 2024/2025</li>
+      </ul>
     </div>
+    <!-- Output semester -->
+    <div id="selectedSemester" class="mt-2 text-sm font-semibold"></div>
+  </div>
+
+  <!-- Jenis semester -->
+  <div class="flex flex-col items-center">
+    <p class="mb-3">Jenis semester</p>
+    <div class="dropdown dropdown-center">
+      <div tabindex="0" role="button" class="btn bg-transparent shadow-none">
+       <div>
+         <!-- Output jenis semester -->
+        <div id="selectedJenis" class="mt-2 text-[12px] text-black font-semibold"></div>
+         <img src="assets/dropdown.png" alt="dropdown">
+       </div>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu w-35 p-2 rounded-box mt-2 text-center shadow-md">
+        <li class="jenis-option">Panjang</li>
+        <div class="divider divider-neutral before:h-[1px] after:h-[0.5px]"></div>
+        <li class="jenis-option mt-1">Pendek</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Handle Semester Dropdown
+  const semesterOptions = document.querySelectorAll('.semester-option');
+  const selectedSemesterDiv = document.getElementById('selectedSemester');
+
+  semesterOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      selectedSemesterDiv.textContent = option.textContent;
+    });
+  });
+
+  // Handle Jenis Dropdown
+  const jenisOptions = document.querySelectorAll('.jenis-option');
+  const selectedJenisDiv = document.getElementById('selectedJenis');
+
+  jenisOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      selectedJenisDiv.textContent = option.textContent;
+    });
+  });
+</script>
 
 </body>
 </html>
