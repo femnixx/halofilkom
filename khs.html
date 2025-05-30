@@ -1,14 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Document</title>
 </head>
-<body class="bg-[#EAEAEA] bg-cover bg-center min-h-screen w-screen flex items-center justify-center">
-    <div class="w-full">
-     <img src="assets/khs_background.png" alt="Top Banner" class="w-full object-cover h-[200px]" />
+<body class="bg-[#EAEAEA]">
+    <div class="w-full relative">
+        <!-- Banner image with arrow -->
+        <div class="w-full relative">
+          <img src="assets/khs_background.png" alt="Top Banner" class="w-full object-cover" />
+          <button class="absolute top-[15%] left-10">
+            <a href="homepage.html">
+              <img src="assets/arrow_back.png" alt="arrow back" class="w-[35px] h-[12px]" />
+            </a>
+          </button>
+      
+          <!-- White box centered below banner -->
+        <div class="w-full flex  justify-center mb-10 relative ">
+          <!-- White box -->
+              
+          <div class="w-[314px] h-[235px] shadow-xl bg-white rounded-[16px] -mt-10 flex flex-col">
+              <div class="overflow-visible relative justify-center items-center flex">
+                  <!-- profile -->
+                  <div class="bg-[#0074C9] border-8 flex items-center justify-center border-[#EAEAEA] w-[100px] h-[100px] rounded-full overflow-visible -mt-[65px] mb-2">
+                      <img src="assets/person.png" alt="Profile picture">
+                  </div>
+              </div>
+              <!-- profile -->
+              <div class="text-center mb-2">
+                  <h1 class="font-bold text-[18px]">JOHN JANE DOE</h1>
+                  <p class="text-[13px]">Sistem Informasi</p>
+              </div>
+              <!-- Informasi hasil akhir -->
+              <div class="flex justify-around flex-col">
+                  <!-- First row -->
+                  <div class="flex justify-center gap-x-5">
+                      <!-- IP Semester -->
+                       <div class="flex flex-col text-center">
+                          <h2 class="text-[#EF7218] font-semibold text-[18px]">N / A</h2>
+                          <p class="font-extralight text-[13px] text-center">IP Semester</p>
+                      </div>
+                      <!-- IP Kumulatif  -->
+                       <div class="flex flex-col text-center">
+                          <h2 class="text-[#EF7218] font-semibold text-[18px]">N / A</h2>
+                          <p class="font-extralight text-[13px] text-center">IP Kumulatif</p>
+                      </div>
+                  </div>
+                  
+                  <!-- Second row -->
+                  <div class="flex gap-x-5 justify-center mb-3">
+                      <!-- IP Semester -->
+                       <div class="flex flex-col text-center">
+                          <h2 class="text-[#EF7218] font-semibold text-[18px]">N / A</h2>
+                          <p class="font-extralight text-[13px] text-center">SKS Semester</p>
+                      </div>
+                      <!-- IP Kumulatif  -->
+                       <div class="flex flex-col text-center">
+                          <h2 class="text-[#EF7218] font-semibold text-[18px]">N / A</h2>
+                          <p class="font-extralight text-[13px] text-center">SKS Kumulatif</p>
+                      </div>
+                  </div>
+                  <p class="text-center text-[12px]">- KARTU HASIL STUDI -</p>
+              </div>
+          </div>
+        </div>
+      </div>
+      <!-- Pilih semester dan jenis -->
+      <div class="flex justify-around">
+        <!-- Pilih semester -->
+         <div class="flex flex-col items-center">
+            <p class="mb-4">Pilih semester</p>
+            <img src="assets/dropdown.png" alt="Dropdown">
+         </div>
+
+          <!-- Pilih jenis semester -->
+         <div class="flex flex-col items-center">
+            <p class="mb-4">Jenis semester</p>
+            <img src="assets/dropdown.png" alt="Dropdown">
+         </div>
+      </div>
     </div>
+
 </body>
 </html>
