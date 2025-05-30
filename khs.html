@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="dist/output.css">
   <title>Document</title>
 </head>
-<body class="bg-[#EAEAEA] min-h-screen text-gray-800">
+<body class="bg-[#EAEAEA] min-h-screen text-gray-800 overflow-hidden">
     <div class="w-full relative">
         <!-- Banner image with arrow -->
         <div class="w-full relative">
@@ -17,47 +17,35 @@
               <img src="assets/arrow_back.png" alt="arrow back" class="w-[35px] h-[12px]" />
             </a>
           </button>
-      
-          <!-- White box centered below banner -->
-        <div class="w-full flex  justify-center mb-10 relative ">
-          <!-- White box -->
+
+        <div class="w-full flex justify-center mb-10 relative ">
           <div class="w-[314px] h-[235px] shadow-xl bg-white rounded-[16px] -mt-10 flex flex-col">
               <div class="overflow-visible relative justify-center items-center flex">
-                  <!-- profile -->
                   <div class="bg-[#0074C9] border-8 flex items-center justify-center border-[#EAEAEA] w-[100px] h-[100px] rounded-full overflow-visible -mt-[65px] mb-2">
                       <img src="assets/person.png" alt="Profile picture">
                   </div>
               </div>
-              <!-- profile -->
               <div class="text-center mb-2">
                   <h1 class="font-bold text-[18px]">JOHN JANE DOE</h1>
                   <p class="text-[13px]">Sistem Informasi</p>
               </div>
-              <!-- Informasi hasil akhir -->
               <div class="flex justify-around flex-col">
-                  <!-- First row -->
                   <div class="flex justify-center gap-x-5">
-                      <!-- IP Semester -->
-                       <div class="flex flex-col text-center">
+                      <div class="flex flex-col text-center">
                           <h2 class="text-[#EF7218] font-semibold text-[18px]">N / A</h2>
                           <p class="font-extralight text-[13px] text-center">IP Semester</p>
                       </div>
-                      <!-- IP Kumulatif  -->
-                       <div class="flex flex-col text-center">
+                      <div class="flex flex-col text-center">
                           <h2 class="text-[#EF7218] font-semibold text-[18px]">N / A</h2>
                           <p class="font-extralight text-[13px] text-center">IP Kumulatif</p>
                       </div>
                   </div>
-                  
-                  <!-- Second row -->
                   <div class="flex gap-x-5 justify-center mb-3">
-                      <!-- IP Semester -->
-                       <div class="flex flex-col text-center">
+                      <div class="flex flex-col text-center">
                           <h2 class="text-[#EF7218] font-semibold text-[18px]">N / A</h2>
                           <p class="font-extralight text-[13px] text-center">SKS Semester</p>
                       </div>
-                      <!-- IP Kumulatif  -->
-                       <div class="flex flex-col text-center">
+                      <div class="flex flex-col text-center">
                           <h2 class="text-[#EF7218] font-semibold text-[18px]">N / A</h2>
                           <p class="font-extralight text-[13px] text-center">SKS Kumulatif</p>
                       </div>
@@ -67,14 +55,13 @@
           </div>
         </div>
       </div>
-      <!-- Pilih semester dan jenis -->
+
 <div class="flex justify-around w-full relative bg-[#EAEAEA]">
-  <!-- Pilih semester -->
   <div class="flex flex-col items-center">
     <p class="mb-3">Pilih semester</p>
     <div class="dropdown dropdown-center">
       <div tabindex="0" role="button" class="btn bg-transparent shadow-none flex flex-col">
-        <div class="">
+        <div>
            <div id="selectedSemester" class="mt-1 text-black font-semibold text-[10px]"></div>
           <img src="assets/dropdown.png" alt="dropdown">
         </div>
@@ -85,17 +72,13 @@
         <li class="semester-option mt-1">Genap Semester 2024/2025</li>
       </ul>
     </div>
-    <!-- Output semester -->
-    <div id="selectedSemester" class="mt-2 text-sm font-semibold"></div>
   </div>
 
-  <!-- Jenis semester -->
   <div class="flex flex-col items-center">
     <p class="mb-3">Jenis semester</p>
     <div class="dropdown dropdown-center">
       <div tabindex="0" role="button" class="btn bg-transparent shadow-none">
        <div>
-         <!-- Output jenis semester -->
         <div id="selectedJenis" class="mt-2 text-[12px] text-black font-semibold"></div>
          <img src="assets/dropdown.png" alt="dropdown">
        </div>
@@ -106,29 +89,75 @@
         <li class="jenis-option mt-1">Pendek</li>
       </ul>
     </div>
+  </div> 
+</div>
+
+<!-- Course cards container -->
+<div id="cardSection" class="flex flex-col max-h-[60vh] overflow-y-auto hidden mt-6 mb-10 px-4">
+  <div id="cardContainer" class="relative flex flex-col gap-4 justify-center items-center">
   </div>
 </div>
 
 <script>
-  // Handle Semester Dropdown
   const semesterOptions = document.querySelectorAll('.semester-option');
   const selectedSemesterDiv = document.getElementById('selectedSemester');
+
+  const jenisOptions = document.querySelectorAll('.jenis-option');
+  const selectedJenisDiv = document.getElementById('selectedJenis');
+
+  const cardContainer = document.getElementById("cardContainer");
+  const cardSection = document.getElementById("cardSection");
 
   semesterOptions.forEach(option => {
     option.addEventListener('click', () => {
       selectedSemesterDiv.textContent = option.textContent;
+      generateCards();
     });
   });
-
-  // Handle Jenis Dropdown
-  const jenisOptions = document.querySelectorAll('.jenis-option');
-  const selectedJenisDiv = document.getElementById('selectedJenis');
 
   jenisOptions.forEach(option => {
     option.addEventListener('click', () => {
       selectedJenisDiv.textContent = option.textContent;
+      generateCards();
     });
   });
+
+  function generateCards() {
+    const value1 = selectedSemesterDiv.textContent.trim();
+    const value2 = selectedJenisDiv.textContent.trim();
+
+    cardContainer.innerHTML = "";
+
+    if (value1 === "" || value2 === "") {
+      cardSection.classList.add("hidden");
+      return;
+    }
+
+    cardSection.classList.remove("hidden");
+
+    for (let i = 0; i < 10; i++) {
+      cardContainer.innerHTML += `
+        <div class="flex mb-2">
+          <div class="w-[54px] h-[54px] bg-score-gradient from-orange-400 to-orange-500 rounded-full items-center flex justify-center text-[35px] text-white font-bold">
+            <h1>K</h1>
+          </div>
+          <div class="flex flex-col ml-4">
+            <div class="mb-1 flex justify-center items-center">
+              <div class="text-white text-[10px] mr-2 flex justify-center font-medium rounded-full bg-blue-500 w-[42px] h-[17px]">
+                <p>N SKS</p>
+              </div>
+              <div class="font-bold text-black text-[15px]">
+                <h2>Nama Mata Kuliah</h2>
+              </div>
+            </div>
+            <div class="flex justify-center w-[185px] h-[20px] bg-orange-400 rounded-[10px] text-white text-[12px] font-bold">
+              <h2>KODE: ABC00000</h2>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+  }
 </script>
 
 </body>

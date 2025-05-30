@@ -3,3 +3,7 @@
 @tailwind utilities;
 @plugin "daisyui";
 @import "tailwindcss/preflight";
+
+.bg-score-gradient {
+  @apply bg-[linear-gradient(to_right,_#AB9081,_#937977,_#7C616C,_#AB5B4B)];
+}
