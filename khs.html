@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="dist/output.css">
   <title>Document</title>
 </head>
-<body class="bg-[#EAEAEA]">
+<body class="bg-[#EAEAEA] min-h-screen text-gray-800">
     <div class="w-full relative">
         <!-- Banner image with arrow -->
         <div class="w-full relative">
@@ -68,26 +69,35 @@
         </div>
       </div>
       <!-- Pilih semester dan jenis -->
-      <div class="flex justify-around">
+      <div class="flex justify-around w-full relative bg-[#EAEAEA]">
         <!-- Pilih semester -->
          <div class="flex flex-col items-center">
             <p class="mb-3">Pilih semester</p>
-            <details class="dropdown-center">
-              <summary class="btn m-1 list-none appearance-none focus:outline-none">
-                <img src="assets/dropdown.png" alt="dropdown">
-              </summary>
-              <ul class="menu dropdown-content rounded-box text-center">
-                <li>Genap 2024/2025</li>
-                <li>Ganjil 2024/2025</li>
-              </ul>
-            </details>
+           <div class="dropdown dropdown-center">
+            <div tabindex="0" role="button" class="btn bg-transparent shadow-none">
+              <img src="assets/dropdown.png" alt="dropdown">
+            </div>
+            <ul tabindex="0" class="dropdown-content menu w-52 rounded-box mt-2 text-center shadow-md">
+            <li>Ganjil Semester 2024/2025</li>
+            <div class="divider divider-neutral before:h-[1px] after:h-[0.5px]"></div>
+            <li class="mt-1">Genap Semester 2024/2025</li>
+            </ul>
+            </div>
          </div>
 
-          <!-- Pilih jenis semester -->
+          <!-- Jenis semester -->
          <div class="flex flex-col items-center">
-            <p class="mb-4">Jenis semester</p>
-            
-            <img src="assets/dropdown.png" alt="Dropdown">
+            <p class="mb-3">Jenis semester</p>
+           <div class="dropdown dropdown-center">
+            <div tabindex="0" role="button" class="btn bg-transparent shadow-none">
+              <img src="assets/dropdown.png" alt="dropdown">
+            </div>
+            <ul tabindex="0" class="dropdown-content menu w-35 p-2 rounded-box mt-2 text-center shadow-md">
+            <li>Panjang</li>
+            <div class="divider divider-neutral before:h-[1px] after:h-[0.5px]"></div>
+            <li class="mt-1">Pendek</li>
+            </ul>
+            </div>
          </div>
       </div>
     </div>
