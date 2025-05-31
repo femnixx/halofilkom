@@ -33,52 +33,43 @@
             <ul tabindex="0" class="dropdown-content menu p-2 bg-transparent">
                 <li class="dropdown-item">Berjalan</li>
                 <div class="divider divider-neutral"></div>
-                <li class="dropdown-item">Presensi</li>
+                <li class="dropdown-item">Terlambat</li>
             </ul>
         </div>
     </div>
 
     <!-- Presensi prompt -->
-     <div class="flex items-center justify-center mt-10 hidden" id="prompt">
+    <div class="flex items-center justify-center mt-10 hidden" id="prompt">
          <div class="flex flex-col bg-white w-[347px] h-[209px] rounded-[20px] shadow-xl border-[#E6E6E6]" id="prompt2">
             <h1 class="text-black text-[14px] font-bold text-center mt-4">NAMA MATA KULIAH (N)</h1>
                 <div class="flex items-center justify-center gap-x-4 mt-2">
-                    <!-- horizontal card subcapaian dan dosen-->
-                     <div class="bg-[#E4E4E4]  w-[145px] h-[42px] rounded-[5px] p-1 flex flex-col text-start pl-2">
+                    <div class="bg-[#E4E4E4] w-[145px] h-[42px] rounded-[5px] p-1 flex flex-col text-start pl-2">
                         <p class="text-[8px]">Sub Capaian Pembelajaran: </p>
                         <p class="text-[8px]">Capaian</p>
-                     </div>
-    
-                     <div class="bg-[#E4E4E4] w-[145px] h-[42px] rounded-[5px] p-1 pl-2 flex flex-col text-start">
+                    </div>
+                    <div class="bg-[#E4E4E4] w-[145px] h-[42px] rounded-[5px] p-1 pl-2 flex flex-col text-start">
                         <p class="text-[8px]">Dosen: Haryudi</p>
-                     </div>
+                    </div>
                 </div>
-                    <!-- Catatan -->
-                <div class="flex justify-around mt-2 ">
+                <div class="flex justify-around mt-2">
                     <div class="w-[305px] h-[61px] bg-[#E4E4E4] rounded-[5px] p-2 pl-3">
                         <p class="text-[8px]">Catatan: </p>
                     </div>
                 </div>
 
-                <!-- Izin Luring Daring-->
-                 <div class="flex justify-center mt-2 gap-x-5">
+                <div class="flex justify-center mt-2 gap-x-5">
                     <button id="izin">
-                        <div class="bg-[#EF7218] rounded-[100px] w-[85px] h-[31px] text-white text-[11px] font-bold 
-                        flex justify-center items-center">
+                        <div class="bg-[#EF7218] rounded-[100px] w-[85px] h-[31px] text-white text-[11px] font-bold flex justify-center items-center">
                             <h1>IZIN</h1>
                         </div>
                     </button>
-
                     <button id="luring">     
-                        <div class="bg-[#2CCE0B] rounded-[100px] w-[85px] h-[31px] text-white text-[11px] font-bold 
-                        flex justify-center items-center">
+                        <div class="bg-[#2CCE0B] rounded-[100px] w-[85px] h-[31px] text-white text-[11px] font-bold flex justify-center items-center">
                             <h1>LURING</h1>
                         </div>
                     </button>
-
                     <button id="daring">
-                        <div class="bg-[#1067CB] rounded-[100px] w-[85px] h-[31px] text-white text-[11px] font-bold 
-                        flex justify-center items-center">
+                        <div class="bg-[#1067CB] rounded-[100px] w-[85px] h-[31px] text-white text-[11px] font-bold flex justify-center items-center">
                             <h1>DARING</h1>
                         </div>
                     </button>
@@ -86,7 +77,46 @@
          </div>
      </div>
 
-    <!-- Overlay for blocking interaction -->
+    <!-- Presensi prompt late -->
+    <div class="flex items-center justify-center mt-10 hidden" id="promptLate">
+         <div class="flex flex-col bg-[#9D9D9D] w-[347px] h-[209px] rounded-[20px] shadow-xl border-[#9D9D9D]" id="prompt-late">
+            <h1 class="text-black text-[14px] font-bold text-center mt-4">NAMA MATA KULIAH (N)</h1>
+                <div class="flex items-center justify-center gap-x-4 mt-2">
+                    <div class="bg-[#E4E4E4] w-[145px] h-[42px] rounded-[5px] p-1 flex flex-col text-start pl-2">
+                        <p class="text-[8px]">Sub Capaian Pembelajaran: </p>
+                        <p class="text-[8px]">Capaian</p>
+                    </div>
+                    <div class="bg-[#E4E4E4] w-[145px] h-[42px] rounded-[5px] p-1 pl-2 flex flex-col text-start">
+                        <p class="text-[8px]">Dosen: Haryudi</p>
+                    </div>
+                </div>
+                <div class="flex justify-around mt-2">
+                    <div class="w-[305px] h-[61px] bg-[#E4E4E4] rounded-[5px] p-2 pl-3">
+                        <p class="text-[8px]">Catatan: </p>
+                    </div>
+                </div>
+
+                <div class="flex justify-center mt-2 gap-x-5">
+                    <button id="izin">
+                        <div class="bg-[#808080] rounded-[100px] w-[85px] h-[31px] text-white text-[11px] font-bold flex justify-center items-center">
+                            <h1>IZIN</h1>
+                        </div>
+                    </button>
+                    <button id="luring">     
+                        <div class="bg-[#808080] rounded-[100px] w-[85px] h-[31px] text-white text-[11px] font-bold flex justify-center items-center">
+                            <h1>LURING</h1>
+                        </div>
+                    </button>
+                    <button id="daring">
+                        <div class="bg-[#808080] rounded-[100px] w-[85px] h-[31px] text-white text-[11px] font-bold flex justify-center items-center">
+                            <h1>DARING</h1>
+                        </div>
+                    </button>
+                </div>
+         </div>
+     </div>
+
+    <!-- Overlay -->
     <div id="overlay" class="hidden fixed inset-0 bg-white bg-opacity-80 z-40"></div>
     <div id="presenceUpdated" class="flex items-center justify-center -mt-[30vw] hidden">
          <div class="bg-white w-[239px] h-[100px] rounded-[16px] text-black font-bold flex items-center justify-center gap-x-5">
@@ -100,6 +130,7 @@
         const optionSelect = document.getElementById("selectedOption");
         const absenToast = document.getElementById("presenceUpdated");
         const presencePrompt = document.getElementById("prompt");
+        const presencePromptLate = document.getElementById("promptLate");
         const overlay = document.getElementById("overlay");
 
         ["izin", "daring", "luring"].forEach(function(id) {
@@ -111,7 +142,15 @@
         options.forEach(option => {
             option.addEventListener('click', () => {
                 optionSelect.textContent = option.textContent;
-                presencePrompt.classList.remove("hidden");
+
+                // Hide the previous prompt and show the new one
+                if (option.textContent === "Berjalan") {
+                    presencePrompt.classList.remove("hidden");
+                    presencePromptLate.classList.add("hidden");
+                } else if (option.textContent === "Terlambat") {
+                    presencePromptLate.classList.remove("hidden");
+                    presencePrompt.classList.add("hidden");
+                }
             });
         });
 
@@ -127,10 +166,8 @@
         function hideToast() {
             overlay.classList.add("hidden");
             absenToast.classList.add("hidden");
-            presencePrompt.classList.add("hidden");
             document.body.style.backgroundColor = "#EAEAEA";
         }
     </script>
-
 </body>
 </html>
