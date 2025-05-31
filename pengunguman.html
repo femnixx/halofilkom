@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>College Announcements</title>
+</head>
+<body class="bg-[#EAEAEA] overflow-auto">
+
+    <div class="flex items-center justify-center bg-[url('assets/khs_background.png')] w-full h-[207px] relative">
+
+         <button class="absolute top-[15%] left-10">
+            <a href="homepage.html">
+              <img src="assets/arrow_back.png" alt="arrow back" class="w-[35px] h-[12px]" />
+            </a>
+          </button>
+        <!-- Page Header -->
+        <header class="mb-6 text-center flex bottom-0 absolute flex-col text-white bg-fixed">
+          <h1 class=" text-white text-2xl font-bold">📢 Laman Pengunguman 📢</h1>
+          <p class="text-sm text-white">Perubahan jadwal akan diunggah oleh pengajar disini</p>
+        </header>
+    </div>
+
+    <!-- Announcement cards -->
+     <div class="overflow-y-auto max-h-[700px]">
+         <div id="announcement-cards" class="overflow-hidden overflow-y-scroll"></div>
+     </div>
+  
+
+  <script>
+
+    const container = document.getElementById('announcement-cards');
+    for (let i = 0; i < 10; i++) {
+        container.innerHTML += makeCards();
+    }
+
+    function makeCards() {
+  return `
+    <div class="bg-[#EF7218] rounded-xl shadow-md p-6 mb-6 max-w-xl mx-auto text-white w-[400px] h-auto mt-5">
+      <h2 class="text-lg font-semibold mb-1">Title</h2>
+      <p class="text-sm mb-2">Tanggal unggah: <span class="font-medium">DATE (YY/MM/DD)</span></p>
+      <p class="mb-2"><strong>Waktu: </strong>TIME OF POST</p>
+      <p class="mb-2"><strong>Lecturer: </strong>NAMA DOSEN</p>
+      <p class="">Description goes here</p>
+    </div>
+  `;
+}
+
+  </script>
+</body>
+</html>
