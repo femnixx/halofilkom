@@ -1,32 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="dist/output.css">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="dist/output.css" />
+  <title>Profil Saya</title>
 </head>
-<body class="bg-[#EAEAEA] min-h-screen text-gray-800 overflow-hidden">
-  <div class="flex flex-col">
+<body class="bg-[#EAEAEA] min-h-screen text-gray-800">
 
-    <!-- Header with background -->
-    <div id="background" class="w-full relative text-white bg-[url('assets/khs_background.png')] h-[207px]">
-      <button class="absolute top-10 left-8">
-        <a href="homepage.html">
-          <img src="assets/arrow_back.png" alt="arrow back" class="w-[35px] h-[12px]" />
-        </a>
-      </button>
-      <div class="flex items-end justify-end mr-5">
-        <h1 class="absolute bottom-4 text-[25px] font-bold">PROFIL SAYA</h1>
+  <div class="flex flex-col items-center">
+
+    <!-- Header Background -->
+    <div class="w-full max-w-md bg-[url('assets/khs_background.png')] bg-cover bg-center text-white p-4 rounded-b-md shadow-md relative">
+      
+      <!-- Back Arrow -->
+      <a href="homepage.html" class="absolute top-4 left-4">
+        <img src="assets/arrow_back.png" alt="arrow back" class="w-[25px]" />
+      </a>
+
+      <!-- Profile Row -->
+      <div class="flex items-center mt-12 space-x-4">
+        
+        <!-- Blue Profile Circle -->
+        <div class="w-[140px] h-[140px] bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
+          <img src="assets/person.png" alt="Profile" class="w-[90px] h-[90px]" />
+        </div>
+
+        <!-- Text Info -->
+        <div class="flex-1 ml-2 items-center justify-end text-end">
+          <h1 class="text-xl font-bold">PROFIL SAYA</h1>
+          <div class="border-t border-white w-full my-2"></div>
+          <p class="text-sm font-semibold">MAHASISWA UB</p>
+          <p class="text-lg font-bold leading-tight">0000000000000001</p>
+          <p class="text-sm">johnjanedoe@student.ub.ac.id</p>
+        </div>
+
       </div>
     </div>
 
-    <!-- Rectangle below background in normal document flow -->
-    <div class="w-full h-[85px] bg-[url('assets/rectangle-two.png')]">
-      hi
+  </div>
+
+  <!-- Additional Info Section -->
+    <div class=" bg-white p-6 mt-4 rounded-md shadow-md space-y-4 mx-3">
+
+      <!-- Name -->
+      <div class="flex justify-between border-b pb-2">
+        <span class="font-semibold text-gray-600">Nama</span>
+        <span class="text-gray-800">John Jane Doe</span>
+      </div>
+
+      <!-- Address -->
+       <div class="flex justify-between border-b pb-2">
+        <span class="font-semibold text-gray-600">Alamat</span>
+        <span class="text-gray-800">Jl. Mutiara Citramas D3/13</span>
+       </div>
+
+       <!-- Phone number -->
+        <div class="flex justify-between border-b pb-2">
+          <span class="font-semibold text-gray-600">No. Handphone</span>
+          <span class="text-gray-800"> 0828829090</span>
+        </div>
+
+      <!-- Birth Date -->
+      <div class="flex justify-between border-b pb-2">
+        <span class="font-semibold text-gray-600">Tanggal Lahir</span>
+        <span class="text-gray-800">01 Januari 2000</span>
+      </div>
+
+      <!-- Major -->
+      <div class="flex justify-between">
+        <span class="font-semibold text-gray-600">Jurusan</span>
+        <span class="text-gray-800">Teknik Informatika</span>
+      </div>
+
     </div>
 
   </div>
+
+ <div class="fixed bottom-0 translate-y-0 ransform -translate-x-0 flex items-center justify-center flex-col">
+  <div class="text-white font-bold items-center flex justify-center bg-[#CB0303] rounded-[100px] w-[127px] h-[46px] text-center">
+    <h1>LOG OUT</h1>
+  </div>
+  <img src="assets/group-mask.png" alt="group-mask">
+ </div>
+  
+
 </body>
-y>
+</html>
