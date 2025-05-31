@@ -3,33 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="dist/output.css">
     <title>Document</title>
 </head>
 <body class="bg-[#EAEAEA] min-h-screen text-gray-800 overflow-hidden">
+    <div class="flex flex-col">
+        
     <div id="background" class="w-full relative text-white bg-[url('assets/khs_background.png')] h-[207px]">
-          <button class="absolute top-10 left-8">
+        <button class="absolute top-10 left-8">
             <a href="homepage.html">
              <img src="assets/arrow_back.png" alt="arrow back" class="w-[35px] h-[12px]" />
             </a>
-          </button>  
-          <div class="flex justify-center items-center">
-              <h1 class="absolute bottom-4 text-[25px] font-bold">PRESENSI KELAS</h1>
-          </div>
+        </button>  
+        <div class="flex justify-center items-center">
+            <h1 class="absolute bottom-4 text-[25px] font-bold">PRESENSI KELAS</h1>
+        </div>
     </div>
+    
     <!-- Jenis Presensi -->
-    <div class="flex items-center gap-x-10 justify-center mt-12">
+    <div class="flex items-center gap-x-10 justify-center mt-12 text-[14px] font-semibold">
         <p class="text-[14px] text-black font-semibold">Jenis Presensi:</p>
-        <img src="assets/dropdown.png" alt="dropdown">
+        <div id="option-dropdown" class="dropdown dropdown-center bg-[#EAEAEA]">
+            <div tabindex="0" role="button" class="btn bg-[#EAEAEA] shadow-none flex flex-col">
+                 <div id="selectedOption" class="text-[14px] font-semibold text-center -mb-3 text-black">
+            </div>
+                <img src="assets/dropdown.png" alt="dropdown">
+            </div>
+            <ul tabindex="0" class="dropdown-content menu p-2 bg-transparent">
+                <li class="dropdown-item">Berjalan</li>
+                <div class="divider divider-neutral"></div>
+                <li class="dropdown-item">Presensi</li>
+            </ul>
+        </div>
     </div>
 
     <!-- Presensi prompt -->
-     <div class="flex items-center justify-center mt-10">
-         <div class="flex flex-col bg-white w-[347px] h-[209px] rounded-[20px] shadow-xl border-[#E6E6E6]">
+     <div class="flex items-center justify-center mt-10 hidden" id="prompt">
+         <div class="flex flex-col bg-white w-[347px] h-[209px] rounded-[20px] shadow-xl border-[#E6E6E6]" id="prompt2">
             <h1 class="text-black text-[14px] font-bold text-center mt-4">NAMA MATA KULIAH (N)</h1>
-                <div class="flex items-center justify-around mt-2">
+                <div class="flex items-center justify-center gap-x-4 mt-2">
                     <!-- horizontal card subcapaian dan dosen-->
-                     <div class="bg-[#E4E4E4] w-[145px] h-[42px] rounded-[5px] p-1 flex flex-col text-start pl-2">
+                     <div class="bg-[#E4E4E4]  w-[145px] h-[42px] rounded-[5px] p-1 flex flex-col text-start pl-2">
                         <p class="text-[8px]">Sub Capaian Pembelajaran: </p>
                         <p class="text-[8px]">Capaian</p>
                      </div>
@@ -39,12 +54,83 @@
                      </div>
                 </div>
                     <!-- Catatan -->
-                <div class="flex justify-center mt-3">
+                <div class="flex justify-around mt-2 ">
                     <div class="w-[305px] h-[61px] bg-[#E4E4E4] rounded-[5px] p-2 pl-3">
                         <p class="text-[8px]">Catatan: </p>
                     </div>
                 </div>
+
+                <!-- Izin Luring Daring-->
+                 <div class="flex justify-center mt-2 gap-x-5">
+                    <button id="izin">
+                        <div class="bg-[#EF7218] rounded-[100px] w-[85px] h-[31px] text-white text-[11px] font-bold 
+                        flex justify-center items-center">
+                            <h1>IZIN</h1>
+                        </div>
+                    </button>
+
+                    <button id="luring">     
+                        <div class="bg-[#2CCE0B] rounded-[100px] w-[85px] h-[31px] text-white text-[11px] font-bold 
+                        flex justify-center items-center">
+                            <h1>LURING</h1>
+                        </div>
+                    </button>
+
+                    <button id="daring">
+                        <div class="bg-[#1067CB] rounded-[100px] w-[85px] h-[31px] text-white text-[11px] font-bold 
+                        flex justify-center items-center">
+                            <h1>DARING</h1>
+                        </div>
+                    </button>
+                </div>
          </div>
      </div>
+
+    <!-- Overlay for blocking interaction -->
+    <div id="overlay" class="hidden fixed inset-0 bg-white bg-opacity-80 z-40"></div>
+    <div id="presenceUpdated" class="flex items-center justify-center -mt-[30vw] hidden">
+         <div class="bg-white w-[239px] h-[100px] rounded-[16px] text-black font-bold flex items-center justify-center gap-x-5">
+               <h1>PRESENSI BERHASIL</h1>
+               <img src="assets/Check.png" alt="Green checkmark">
+            </div>
+     </div>
+
+    <script>
+        const options = document.querySelectorAll(".dropdown-item");
+        const optionSelect = document.getElementById("selectedOption");
+        const absenToast = document.getElementById("presenceUpdated");
+        const presencePrompt = document.getElementById("prompt");
+        const overlay = document.getElementById("overlay");
+
+        ["izin", "daring", "luring"].forEach(function(id) {
+            document.getElementById(id).addEventListener("click", () => {
+                showToast();
+            });
+        });
+
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                optionSelect.textContent = option.textContent;
+                presencePrompt.classList.remove("hidden");
+            });
+        });
+
+        function showToast() {
+            overlay.classList.remove("hidden");
+            absenToast.classList.remove("hidden");
+            document.body.style.backgroundColor = "#FFFFFF";
+
+            // Dismiss overlay and toast when clicking anywhere
+            overlay.addEventListener("click", hideToast);
+        }
+
+        function hideToast() {
+            overlay.classList.add("hidden");
+            absenToast.classList.add("hidden");
+            presencePrompt.classList.add("hidden");
+            document.body.style.backgroundColor = "#EAEAEA";
+        }
+    </script>
+
 </body>
 </html>
