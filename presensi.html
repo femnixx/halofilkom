@@ -132,6 +132,7 @@
         const presencePrompt = document.getElementById("prompt");
         const presencePromptLate = document.getElementById("promptLate");
         const overlay = document.getElementById("overlay");
+        const prompt = document.getElementById("prompt");
 
         ["izin", "daring", "luring"].forEach(function(id) {
             document.getElementById(id).addEventListener("click", () => {
@@ -166,6 +167,7 @@
         function hideToast() {
             overlay.classList.add("hidden");
             absenToast.classList.add("hidden");
+            prompt.classList.add("hidden");
             document.body.style.backgroundColor = "#EAEAEA";
         }
     </script>
